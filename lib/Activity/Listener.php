@@ -106,10 +106,11 @@ class Listener {
 		}
 
 		// Check if Current User is Guest
+		$clientIp = $this->getClientIP();
 		if ($this->currentUser->getUserIdentifier() === '') {
-			$requestor = 'Anonymous ' . $_SERVER['REMOTE_ADDR'];
+			$requestor = 'Anonymous ' . $clientIp;
 		} else {
-			$requestor = $this->currentUser->getUserIdentifier() . ' (IP: ' . $_SERVER['REMOTE_ADDR'] . ')';
+			$requestor = $this->currentUser->getUserIdentifier() . ' (IP: ' . $clientIp . ')';
 		}
 
 		$subjectParams = [[$fileId => $filePath], $requestor, $client];
@@ -219,5 +220,17 @@ class Listener {
 			$node->getId(),
 			$node instanceof Folder
 		];
+	}
+
+	protected function getClientIP(): string {
+		if (array_key_exists('HTTP_X_FORWARDED_FOR', $_SERVER)) {
+			return  $_SERVER["HTTP_X_FORWARDED_FOR"];
+		} else if (array_key_exists('REMOTE_ADDR', $_SERVER)) { 
+			return $_SERVER["REMOTE_ADDR"];
+		} else if (array_key_exists('HTTP_CLIENT_IP', $_SERVER)) {
+			return $_SERVER["HTTP_CLIENT_IP"];
+		}
+
+		return '';
 	}
 }
