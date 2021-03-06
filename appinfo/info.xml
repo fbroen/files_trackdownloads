@@ -6,7 +6,6 @@
 	<summary>Creates activities (visible to any administrator) for downloads of files that were shared with other users or a group.</summary>
 	<description>Creates activities (visible to any administrator) for downloads of files that were shared with other users or a group.</description>
 	<version>1.10.0</version>
-	<version>1.11.0</version>
 	<licence>AGPL</licence>
 	<author>Joas Schilling, Timo Kunze</author>
 	<namespace>FilesTrackDownloads</namespace>
