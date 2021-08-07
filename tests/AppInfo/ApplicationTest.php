@@ -21,7 +21,6 @@
 
 namespace OCA\FilesTrackDownloads\Tests\AppInfo;
 
-
 use OCA\FilesTrackDownloads\Activity\Listener;
 use OCA\FilesTrackDownloads\Activity\Provider;
 use OCA\FilesTrackDownloads\Activity\Setting;

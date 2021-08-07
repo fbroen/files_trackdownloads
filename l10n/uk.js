@@ -1,5 +1,5 @@
 OC.L10N.register(
-    "files_downloadactivity",
+    "files_trackdownloads",
     {
     "Activities for shared file downloads" : "Дії для завантажених спільних файлів"
 },

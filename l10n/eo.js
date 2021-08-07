@@ -1,5 +1,5 @@
 OC.L10N.register(
-    "files_downloadactivity",
+    "files_trackdownloads",
     {
     "Downloaded by {actor} (via desktop)" : "Elŝutita de {actor} (per labortabla aparato)",
     "Downloaded by {actor} (via app)" : "Elŝutita de {actor} (per aplikaĵo)",

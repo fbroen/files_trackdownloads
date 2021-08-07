@@ -1,5 +1,5 @@
 OC.L10N.register(
-    "files_downloadactivity",
+    "files_trackdownloads",
     {
     "Downloaded by {actor} (via desktop)" : "Preuzeo {actor} (putem računala)",
     "Downloaded by {actor} (via app)" : "Preuzeo {actor} (putem aplikacije)",
