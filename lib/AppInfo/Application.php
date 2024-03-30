@@ -32,6 +32,7 @@ use OCP\Files\File;
 use OCP\IPreview;
 use OCP\Util;
 use Symfony\Component\EventDispatcher\GenericEvent;
+use OCP\EventDispatcher\IEventDispatcher; //FvB Added 2024-03-30
 
 class Application extends App implements IBootstrap {
 	public const APP_ID = 'files_trackdownloads';
@@ -46,9 +47,9 @@ class Application extends App implements IBootstrap {
 	public function boot(IBootContext $context): void {
 		Util::connectHook('OC_Filesystem', 'read', $this, 'listenReadFile');
 
-		$eventDispatcher = $context->getServerContainer()->getEventDispatcher();
+		$eventDispatcher = $this->getContainer()->get(IEventDispatcher::class);
 		$eventDispatcher->addListener(
-			IPreview::EVENT,
+			'OCP\Collaboration\Reference\RenderReferenceEvent',
 			function (GenericEvent $event) {
 				$this->listenPreviewFile($event);
 			}
